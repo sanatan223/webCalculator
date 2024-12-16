@@ -47,8 +47,8 @@ const getSymbols = () => {
         item.addEventListener("click", () => {
             symbol = item.innerHTML;
             htmlDisplay.value = val1 + symbol;
-            getValue2();
             val3 = val1;
+            getValue2();
     
     
         })
