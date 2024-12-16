@@ -1,5 +1,4 @@
 const htmlMainBody = document.querySelector('.main-body-js');
-
 let display = `<input class="display js-display" placeholder="this is the display" type="text">`;
 
 let buttons;
@@ -65,50 +64,37 @@ const getValue2 = () => {
     })
 }
 
-const sum = () => {
-    return Number(val3) + Number(val2);
-}
-
-const sub = () => {
-    return Number(val3) - Number(val2);
-}
-
-const mult = () => {
-    return Number(val3) * Number(val2);
-}
-
-const div = () => {
-    return Number(val3) / Number(val2);
+const getResult = () => {
+    let result = "";
+    htmlEqualButton.addEventListener("click", () => {
+        switch (symbol){
+            case "+":
+                result = Number(val3) + Number(val2);
+                break;
+            case "-":
+                result = Number(val3) - Number(val2);
+                break;
+            case "*":
+                result = Number(val3) * Number(val2);
+                break;
+            case "/":
+                result = Number(val3) / Number(val2);
+                break;
+        }
+        htmlDisplay.value = result;        
+    })
 }
 
 let val1 = "";
 let val2 = "";
 let val3 = "";
 let symbol = "";
-let result = "";
+
 
 getValue();
 getSymbols();
+getResult();
 
-htmlEqualButton.addEventListener("click", () => {
-    switch (symbol){
-        case "+":
-            result = sum();
-            break;
-        case "-":
-            result = sub();
-            break;
-        case "*":
-            result = mult();
-            break;
-        case "/":
-            result = div();
-            break;
-    }
 
-    htmlDisplay.value = result;
-
-    
-})
 
 
