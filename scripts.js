@@ -54,11 +54,11 @@ const getSymbols = () => {
                 getValue2();
             }
             else{
-                symbol = item.innerHTML;
                 getResult();
+                symbol = item.innerHTML;
                 htmlDisplay.value = result + symbol;
                 val3 = result;
-                getValue2();
+                val2 = "";
             }
 
         })
@@ -66,14 +66,12 @@ const getSymbols = () => {
 }
 
 const getValue2 = () => {
-    val2 = "";
     htmlNumButtons.forEach((item) => {
         item.addEventListener("click", () => {
             val2 += item.innerHTML;
             htmlDisplay.value = val3 + symbol + val2;
             console.log(val2);
         })
-        
     })
 }
 
