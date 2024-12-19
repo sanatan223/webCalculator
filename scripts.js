@@ -1,5 +1,6 @@
 const htmlMainBody = document.querySelector('.main-body-js');
 let display = `<input class="display js-display" placeholder="this is the display" type="text">`;
+let result = "";
 
 let buttons;
 const renderbuttons = () => {
@@ -36,53 +37,63 @@ const getValue = () => {
         item.addEventListener("click", () => {
             val1 += item.innerHTML;
             htmlDisplay.value = val1;
+            console.log(val1);
         })
         
     })
 }
 
 const getSymbols = () => {
+    getValue();
     htmlSymbols.forEach((item) => {
         item.addEventListener("click", () => {
-            symbol = item.innerHTML;
-            htmlDisplay.value = val1 + symbol;
-            val3 = val1;
-            getValue2();
-    
-    
+            if (symbol === ""){
+                symbol = item.innerHTML;
+                htmlDisplay.value = val1 + symbol;
+                val3 = val1;
+                getValue2();
+            }
+            else{
+                symbol = item.innerHTML;
+                getResult();
+                htmlDisplay.value = result + symbol;
+                val3 = result;
+                getValue2();
+            }
+
         })
     })
 }
 
 const getValue2 = () => {
+    val2 = "";
     htmlNumButtons.forEach((item) => {
         item.addEventListener("click", () => {
             val2 += item.innerHTML;
             htmlDisplay.value = val3 + symbol + val2;
+            console.log(val2);
         })
         
     })
 }
 
 const getResult = () => {
-    let result = "";
-    htmlEqualButton.addEventListener("click", () => {
-        switch (symbol){
-            case "+":
-                result = Number(val3) + Number(val2);
-                break;
-            case "-":
-                result = Number(val3) - Number(val2);
-                break;
-            case "*":
-                result = Number(val3) * Number(val2);
-                break;
-            case "/":
-                result = Number(val3) / Number(val2);
-                break;
-        }
-        htmlDisplay.value = result;        
-    })
+    switch (symbol){
+        case "+":
+            result = Number(val3) + Number(val2);
+            break;
+        case "-":
+            result = Number(val3) - Number(val2);
+            break;
+        case "*":
+            result = Number(val3) * Number(val2);
+            break;
+        case "/":
+            result = Number(val3) / Number(val2);
+            break;
+    }
+    htmlDisplay.value = result;
+    console.log(result);
 }
 
 let val1 = "";
@@ -90,10 +101,10 @@ let val2 = "";
 let val3 = "";
 let symbol = "";
 
-
-getValue();
 getSymbols();
-getResult();
+htmlEqualButton.addEventListener("click", () => {
+    getResult();
+})
 
 
 
