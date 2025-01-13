@@ -36,7 +36,7 @@ const getValue = () => {
     htmlNumButtons.forEach((item) => {
         item.addEventListener("click", () => {
             val1 += item.innerHTML;
-            htmlDisplay.value = val1;
+            htmlDisplay.innerHTML = val1;
             console.log(val1);
         })
         
@@ -49,14 +49,14 @@ const getSymbols = () => {
         item.addEventListener("click", () => {
             if (symbol === ""){
                 symbol = item.innerHTML;
-                htmlDisplay.value = val1 + symbol;
+                htmlDisplay.innerHTML = val1 + symbol;
                 val3 = val1;
                 getValue2();
             }
             else{
                 getResult();
                 symbol = item.innerHTML;
-                htmlDisplay.value = result + symbol;
+                htmlDisplay.innerHTML = result + symbol;
                 val3 = result;
                 val2 = "";
             }
@@ -69,7 +69,7 @@ const getValue2 = () => {
     htmlNumButtons.forEach((item) => {
         item.addEventListener("click", () => {
             val2 += item.innerHTML;
-            htmlDisplay.value = val3 + symbol + val2;
+            htmlDisplay.innerHTML = val3 + symbol + val2;
             console.log(val2);
         })
     })
@@ -90,7 +90,7 @@ const getResult = () => {
             result = Number(val3) / Number(val2);
             break;
     }
-    htmlDisplay.value = result;
+    htmlDisplay.innerHTML = result;
     console.log(result);
 }
 
