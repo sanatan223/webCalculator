@@ -11,6 +11,9 @@ body{
 }
 
 .display{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 400px;
     background-color: rgb(241, 208, 21);
     height: 100px;

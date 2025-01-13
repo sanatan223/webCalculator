@@ -1,5 +1,5 @@
 const htmlMainBody = document.querySelector('.main-body-js');
-let display = `<input class="display js-display" placeholder="this is the display" type="text">`;
+let display = `<div class="display js-display">this is the display</div>`;
 let result = "";
 
 let buttons;
