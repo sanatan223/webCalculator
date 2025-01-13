@@ -1,11 +1,5 @@
 body{
     display: flex;
-    position: fixed;
-    flex-direction: column;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
     justify-content: center;
     align-items: center;
 }
